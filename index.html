@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048</title>
+    <style type="text/css">
+        :root {
+            --Board-Size: 4;
+            --R-Base: 40;
+            --R-Multiple: 20;
+
+            --G-Base: 120;
+            --G-Multiple: -8;
+
+            --B-Base: 30;
+            --B-Multiple: 5;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgb(200, 200, 200);
+            margin: 0;
+            flex-direction: column;
+        }
+
+        #GameBoard {
+            display: grid;
+            height: 75vmin;
+            width: 75vmin;
+            background-color: rgb(160, 160, 160);
+            margin: 0;
+            grid-template-columns: repeat(var(--Board-Size), 1fr);
+            grid-template-rows: repeat(var(--Board-Size), 1fr);
+            border-radius: .6rem;
+            padding: .4rem;
+        }
+
+        #GameBoard>* {
+            border-radius: .6rem;
+            margin: .2rem;
+            font-size: 10vmin;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #Options {
+            display: flex;
+            height: 5vmin;
+            margin-top: 1vmin;
+        }
+
+        #Options > * {
+            margin-right: 1vmin;
+            margin-left: 1vmin;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .Value2 {
+            background-color: rgb(var(--R-Base), var(--G-Base), var(--B-Base));
+            color: rgb(200, 200, 200);
+        }
+
+        .Value4 {
+            background-color: rgb(calc(var(--R-Base) + var(--R-Multiple)), calc(var(--G-Base) + var(--G-Multiple)), calc(var(--B-Base) + var(--B-Multiple)));
+            color: rgb(200, 200, 200);
+        }
+
+        .Value8 {
+            background-color: rgb(calc(var(--R-Base) + var(--R-Multiple) * 2), calc(var(--G-Base) + var(--G-Multiple) * 2), calc(var(--B-Base) + var(--B-Multiple) * 2));
+            color: rgb(200, 200, 200);
+        }
+
+        .Value16 {
+            background-color: rgb(calc(var(--R-Base) + var(--R-Multiple) * 3), calc(var(--G-Base) + var(--G-Multiple) * 3), calc(var(--B-Base) + var(--B-Multiple) * 3));
+            color: rgb(200, 200, 200);
+        }
+
+        .Value32 {
+            background-color: rgb(calc(var(--R-Base) + var(--R-Multiple) * 4), calc(var(--G-Base) + var(--G-Multiple) * 4), calc(var(--B-Base) + var(--B-Multiple) * 4));
+            color: rgb(200, 200, 200);
+        }
+
+        .Value64 {
+            background-color: rgb(calc(var(--R-Base) + var(--R-Multiple) * 5), calc(var(--G-Base) + var(--G-Multiple) * 5), calc(var(--B-Base) + var(--B-Multiple) * 5));
+            color: rgb(200, 200, 200);
+        }
+
+        .Value128 {
+            background-color: rgb(calc(var(--R-Base) + var(--R-Multiple) * 6), calc(var(--G-Base) + var(--G-Multiple) * 6), calc(var(--B-Base) + var(--B-Multiple) * 6));
+            color: rgb(200, 200, 200);
+        }
+        .Value256 {
+            background-color: rgb(calc(var(--R-Base) + var(--R-Multiple) * 7), calc(var(--G-Base) + var(--G-Multiple) * 7), calc(var(--B-Base) + var(--B-Multiple) * 7));
+            color: rgb(200, 200, 200);
+        }
+        .Value512 {
+            background-color: rgb(calc(var(--R-Base) + var(--R-Multiple) * 8), calc(var(--G-Base) + var(--G-Multiple) * 8), calc(var(--B-Base) + var(--B-Multiple) * 8));
+            color: rgb(200, 200, 200);
+        }
+        .Value1024 {
+            background-color: rgb(calc(var(--R-Base) + var(--R-Multiple) * 9), calc(var(--G-Base) + var(--G-Multiple) * 9), calc(var(--B-Base) + var(--B-Multiple) * 9));
+            color: rgb(200, 200, 200);
+        }
+        .Value2048 {
+            background-color: rgb(calc(var(--R-Base) + var(--R-Multiple) * 10), calc(var(--G-Base) + var(--G-Multiple) * 10), calc(var(--B-Base) + var(--B-Multiple) * 10));
+            color: rgb(200, 200, 200);
+        }
+    </style>
+    <script type="module" src="./2048.js" defer></script>
+    <script type="module" src="./input.js" defer></script>
+</head>
+
+<body>
+    <div id="GameBoard"></div>
+    <div id="Options"><div id="Score">Score: 0</div><button id="StartOver">Start Over</button></div>
+</body>
+
+</html>
